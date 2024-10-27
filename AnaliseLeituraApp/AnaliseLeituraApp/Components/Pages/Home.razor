@@ -1,0 +1,120 @@
+﻿@page "/"
+@rendermode InteractiveServer
+
+<PageTitle>Home</PageTitle>
+
+<h1>Bem-vindo!</h1>
+<div>
+    <p>Escolha um arquivo JSON para ser analisado:</p>
+    <InputFile OnChange="@OnInputFileChange" accept=".json"></InputFile>
+    <br />
+    <br />
+    <button onclick="@ExecutarClicked" class="btn" style="background-color:#3A0647; color:whitesmoke;"><b>Executar</b></button>
+    <br />
+    <br />
+</div>
+
+<div hidden="@hideTexto">
+    <h3>A média obtida das leituras é de @media mV</h3>
+    <h3>O maior valor obtido das leituras é de @maior mV</h3>
+    <h3>O menor valor obtido das leituras é de @menor mV</h3>
+</div>
+<div hidden="@hideTextoErro">
+    <h3 style="color:red;">Nenhum arquivo foi selecionado ou o arquivo não é do tipo JSON!</h3>
+</div>
+
+@code {
+    IBrowserFile? arquivoSelecionado = null;
+    LeiturasModel leituras = new LeiturasModel();
+    decimal media = 0;
+    decimal maior = 0;
+    decimal menor = 99999;
+    bool hideTexto = true;
+    bool hideTextoErro = true;
+
+
+    private void OnInputFileChange(InputFileChangeEventArgs e)
+    {
+        hideTexto = true;
+        hideTextoErro = true;
+        arquivoSelecionado = e.File;
+    }
+
+    private async void ExecutarClicked()
+    {
+        if (arquivoSelecionado is not null && arquivoSelecionado?.ContentType == "application/json")
+        {
+            try
+            {
+                hideTextoErro = true;
+
+                using (StreamReader r = new StreamReader(arquivoSelecionado.OpenReadStream()))
+                {
+                    string json = await r.ReadToEndAsync();
+                    leituras = JsonConvert.DeserializeObject<LeiturasModel>(json);
+                }
+
+                CalcularMedia();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        else
+        {
+            hideTextoErro = false;
+        }
+    }
+
+
+    private void CalcularMedia()
+    {
+        if (leituras is not null)
+        {
+            decimal repousoFlexor = 71.43m;
+            decimal repousoExtensor = 108.35m;
+            decimal repousoPolegar = 46.1m;
+
+            maior = 0;
+            menor = 999999;
+            media = 0;
+            int count = 0;
+            decimal valor = 0;
+
+            foreach (var dado in leituras.Readings)
+            {
+                valor = Convert.ToDecimal(dado.FirstEmg, System.Globalization.CultureInfo.InvariantCulture);
+                //Manter sem o IF para desconsiderar o repouso e incluir IF para a considerar a média obtida nas leituras em repouso
+                //if (valor > repousoExtensor) //repousoExtensor, repousoPolegar ou repousoFlexor
+                //{
+                    media += valor;
+                    count++;
+
+                    if (valor < menor)
+                        menor = valor;
+
+                    if (valor > maior)
+                        maior = valor;
+                //}
+            }
+        
+
+            Console.WriteLine($"------- {arquivoSelecionado?.Name} -------");
+            Console.WriteLine($"Soma: {media}");
+            Console.WriteLine($"Registros: {count}");
+
+            if (count > 0)
+                media = Math.Round(media / count, 2);
+
+            Console.WriteLine($"Media: {media}");
+            Console.WriteLine($"Maior: {maior}");
+            Console.WriteLine($"Menor: {menor}");
+            Console.WriteLine();
+
+            hideTexto = false;
+
+            StateHasChanged();
+        }
+    }
+}
