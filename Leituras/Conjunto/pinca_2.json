@@ -1,0 +1,343 @@
+{
+	"charts": {
+		"range": "100"
+	},
+	"readings": [
+		{
+			"ExtEmg": 0,
+			"FlexEmg": 131.36,
+			"PolEmg": 502.86,
+			"timestamp": 1731460636
+		},
+		{
+			"ExtEmg": 0,
+			"FlexEmg": 81.39,
+			"PolEmg": 495.6,
+			"timestamp": 1731460637
+		},
+		{
+			"ExtEmg": 0,
+			"FlexEmg": 86.23,
+			"PolEmg": 480.29,
+			"timestamp": 1731460638
+		},
+		{
+			"ExtEmg": 0,
+			"FlexEmg": 43.52,
+			"PolEmg": 587.47,
+			"timestamp": 1731460639
+		},
+		{
+			"ExtEmg": 91.06,
+			"FlexEmg": 99.12,
+			"PolEmg": 503.66,
+			"timestamp": 1731460640
+		},
+		{
+			"ExtEmg": 562.49,
+			"FlexEmg": 146.67,
+			"PolEmg": 449.67,
+			"timestamp": 1731460641
+		},
+		{
+			"ExtEmg": 1232.16,
+			"FlexEmg": 1310.33,
+			"PolEmg": 1560.95,
+			"timestamp": 1731460641
+		},
+		{
+			"ExtEmg": 258.68,
+			"FlexEmg": 82.2,
+			"PolEmg": 603.59,
+			"timestamp": 1731460642
+		},
+		{
+			"ExtEmg": 117.66,
+			"FlexEmg": 564.91,
+			"PolEmg": 524.62,
+			"timestamp": 1731460643
+		},
+		{
+			"ExtEmg": 2455.46,
+			"FlexEmg": 3300,
+			"PolEmg": 3300,
+			"timestamp": 1731460644
+		},
+		{
+			"ExtEmg": 1777.73,
+			"FlexEmg": 1041.98,
+			"PolEmg": 1997.73,
+			"timestamp": 1731460645
+		},
+		{
+			"ExtEmg": 124.1,
+			"FlexEmg": 76.56,
+			"PolEmg": 536.7,
+			"timestamp": 1731460646
+		},
+		{
+			"ExtEmg": 2154.07,
+			"FlexEmg": 967.03,
+			"PolEmg": 1768.06,
+			"timestamp": 1731460647
+		},
+		{
+			"ExtEmg": 1013.77,
+			"FlexEmg": 141.83,
+			"PolEmg": 824.4,
+			"timestamp": 1731460648
+		},
+		{
+			"ExtEmg": 275.6,
+			"FlexEmg": 141.83,
+			"PolEmg": 1173.33,
+			"timestamp": 1731460649
+		},
+		{
+			"ExtEmg": 926.74,
+			"FlexEmg": 601.17,
+			"PolEmg": 2323.3,
+			"timestamp": 1731460650
+		},
+		{
+			"ExtEmg": 991.21,
+			"FlexEmg": 1432.82,
+			"PolEmg": 2484.47,
+			"timestamp": 1731460651
+		},
+		{
+			"ExtEmg": 279.63,
+			"FlexEmg": 283.66,
+			"PolEmg": 510.11,
+			"timestamp": 1731460652
+		},
+		{
+			"ExtEmg": 77.36,
+			"FlexEmg": 166.01,
+			"PolEmg": 903.37,
+			"timestamp": 1731460653
+		},
+		{
+			"ExtEmg": 1498.9,
+			"FlexEmg": 693.04,
+			"PolEmg": 1941.32,
+			"timestamp": 1731460654
+		},
+		{
+			"ExtEmg": 453.7,
+			"FlexEmg": 961.39,
+			"PolEmg": 1804.32,
+			"timestamp": 1731460654
+		},
+		{
+			"ExtEmg": 275.6,
+			"FlexEmg": 141.83,
+			"PolEmg": 405.35,
+			"timestamp": 1731460655
+		},
+		{
+			"ExtEmg": 323.96,
+			"FlexEmg": 549.6,
+			"PolEmg": 1362.71,
+			"timestamp": 1731460656
+		},
+		{
+			"ExtEmg": 100.73,
+			"FlexEmg": 580.22,
+			"PolEmg": 1672.16,
+			"timestamp": 1731460657
+		},
+		{
+			"ExtEmg": 75.75,
+			"FlexEmg": 323.15,
+			"PolEmg": 485.13,
+			"timestamp": 1731460658
+		},
+		{
+			"ExtEmg": 929.96,
+			"FlexEmg": 305.42,
+			"PolEmg": 968.64,
+			"timestamp": 1731460659
+		},
+		{
+			"ExtEmg": 1332.09,
+			"FlexEmg": 1100,
+			"PolEmg": 1714.07,
+			"timestamp": 1731460660
+		},
+		{
+			"ExtEmg": 503.66,
+			"FlexEmg": 242.56,
+			"PolEmg": 613.26,
+			"timestamp": 1731460661
+		},
+		{
+			"ExtEmg": 22.56,
+			"FlexEmg": 142.64,
+			"PolEmg": 386.81,
+			"timestamp": 1731460662
+		},
+		{
+			"ExtEmg": 1067.77,
+			"FlexEmg": 1152.38,
+			"PolEmg": 1946.96,
+			"timestamp": 1731460663
+		},
+		{
+			"ExtEmg": 309.45,
+			"FlexEmg": 269.16,
+			"PolEmg": 959.78,
+			"timestamp": 1731460664
+		},
+		{
+			"ExtEmg": 0,
+			"FlexEmg": 167.62,
+			"PolEmg": 1703.59,
+			"timestamp": 1731460665
+		},
+		{
+			"ExtEmg": 0,
+			"FlexEmg": 1816.41,
+			"PolEmg": 2307.18,
+			"timestamp": 1731460666
+		},
+		{
+			"ExtEmg": 1170.92,
+			"FlexEmg": 1135.46,
+			"PolEmg": 1644.76,
+			"timestamp": 1731460667
+		},
+		{
+			"ExtEmg": 570.55,
+			"FlexEmg": 110.4,
+			"PolEmg": 630.18,
+			"timestamp": 1731460668
+		},
+		{
+			"ExtEmg": 40.29,
+			"FlexEmg": 209.52,
+			"PolEmg": 703.52,
+			"timestamp": 1731460669
+		},
+		{
+			"ExtEmg": 1019.41,
+			"FlexEmg": 790.55,
+			"PolEmg": 2137.95,
+			"timestamp": 1731460670
+		},
+		{
+			"ExtEmg": 247.4,
+			"FlexEmg": 411.79,
+			"PolEmg": 1764.84,
+			"timestamp": 1731460671
+		},
+		{
+			"ExtEmg": 271.58,
+			"FlexEmg": 124.1,
+			"PolEmg": 591.5,
+			"timestamp": 1731460672
+		},
+		{
+			"ExtEmg": 1237,
+			"FlexEmg": 709.16,
+			"PolEmg": 1804.32,
+			"timestamp": 1731460673
+		},
+		{
+			"ExtEmg": 863.08,
+			"FlexEmg": 915.46,
+			"PolEmg": 1967.91,
+			"timestamp": 1731460674
+		},
+		{
+			"ExtEmg": 176.48,
+			"FlexEmg": 98.32,
+			"PolEmg": 1474.73,
+			"timestamp": 1731460675
+		},
+		{
+			"ExtEmg": 112.82,
+			"FlexEmg": 124.1,
+			"PolEmg": 1095.97,
+			"timestamp": 1731460676
+		},
+		{
+			"ExtEmg": 1045.2,
+			"FlexEmg": 1253.92,
+			"PolEmg": 1766.45,
+			"timestamp": 1731460677
+		},
+		{
+			"ExtEmg": 261.1,
+			"FlexEmg": 116.04,
+			"PolEmg": 554.43,
+			"timestamp": 1731460678
+		},
+		{
+			"ExtEmg": 369.08,
+			"FlexEmg": 82.2,
+			"PolEmg": 850.99,
+			"timestamp": 1731460679
+		},
+		{
+			"ExtEmg": 1343.37,
+			"FlexEmg": 1121.76,
+			"PolEmg": 1604.47,
+			"timestamp": 1731460680
+		},
+		{
+			"ExtEmg": 430.33,
+			"FlexEmg": 101.54,
+			"PolEmg": 1380.44,
+			"timestamp": 1731460681
+		},
+		{
+			"ExtEmg": 184.54,
+			"FlexEmg": 183.74,
+			"PolEmg": 1178.17,
+			"timestamp": 1731460682
+		},
+		{
+			"ExtEmg": 1153.19,
+			"FlexEmg": 1444.1,
+			"PolEmg": 2457.88,
+			"timestamp": 1731460683
+		},
+		{
+			"ExtEmg": 568.13,
+			"FlexEmg": 90.26,
+			"PolEmg": 601.17,
+			"timestamp": 1731460684
+		},
+		{
+			"ExtEmg": 142.64,
+			"FlexEmg": 118.46,
+			"PolEmg": 405.35,
+			"timestamp": 1731460685
+		},
+		{
+			"ExtEmg": 1585.13,
+			"FlexEmg": 1455.38,
+			"PolEmg": 1755.97,
+			"timestamp": 1731460686
+		},
+		{
+			"ExtEmg": 1237,
+			"FlexEmg": 221.61,
+			"PolEmg": 1145.13,
+			"timestamp": 1731460687
+		},
+		{
+			"ExtEmg": 25.79,
+			"FlexEmg": 182.93,
+			"PolEmg": 1155.6,
+			"timestamp": 1731460688
+		},
+		{
+			"ExtEmg": 12.89,
+			"FlexEmg": 458.53,
+			"PolEmg": 777.66,
+			"timestamp": 1731460689
+		}
+	]
+}

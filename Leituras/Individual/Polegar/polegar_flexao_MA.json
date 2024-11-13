@@ -1,0 +1,227 @@
+{
+  "charts": {
+    "range": "100"
+  },
+  "readings": [
+    {
+      "FirstEmg": 37.88,
+      "timestamp": 1730575826
+    },
+    {
+      "FirstEmg": 33.85,
+      "timestamp": 1730575827
+    },
+    {
+      "FirstEmg": 38.68,
+      "timestamp": 1730575828
+    },
+    {
+      "FirstEmg": 45.93,
+      "timestamp": 1730575829
+    },
+    {
+      "FirstEmg": 33.85,
+      "timestamp": 1730575830
+    },
+    {
+      "FirstEmg": 78.97,
+      "timestamp": 1730575831
+    },
+    {
+      "FirstEmg": 176.48,
+      "timestamp": 1730575832
+    },
+    {
+      "FirstEmg": 41.9,
+      "timestamp": 1730575832
+    },
+    {
+      "FirstEmg": 44.32,
+      "timestamp": 1730575833
+    },
+    {
+      "FirstEmg": 44.32,
+      "timestamp": 1730575834
+    },
+    {
+      "FirstEmg": 40.29,
+      "timestamp": 1730575835
+    },
+    {
+      "FirstEmg": 38.68,
+      "timestamp": 1730575836
+    },
+    {
+      "FirstEmg": 39.49,
+      "timestamp": 1730575837
+    },
+    {
+      "FirstEmg": 38.68,
+      "timestamp": 1730575838
+    },
+    {
+      "FirstEmg": 41.9,
+      "timestamp": 1730575839
+    },
+    {
+      "FirstEmg": 37.07,
+      "timestamp": 1730575840
+    },
+    {
+      "FirstEmg": 44.32,
+      "timestamp": 1730575841
+    },
+    {
+      "FirstEmg": 49.96,
+      "timestamp": 1730575842
+    },
+    {
+      "FirstEmg": 40.29,
+      "timestamp": 1730575843
+    },
+    {
+      "FirstEmg": 38.68,
+      "timestamp": 1730575844
+    },
+    {
+      "FirstEmg": 51.58,
+      "timestamp": 1730575844
+    },
+    {
+      "FirstEmg": 51.58,
+      "timestamp": 1730575845
+    },
+    {
+      "FirstEmg": 49.16,
+      "timestamp": 1730575846
+    },
+    {
+      "FirstEmg": 47.55,
+      "timestamp": 1730575847
+    },
+    {
+      "FirstEmg": 43.52,
+      "timestamp": 1730575848
+    },
+    {
+      "FirstEmg": 33.85,
+      "timestamp": 1730575849
+    },
+    {
+      "FirstEmg": 53.19,
+      "timestamp": 1730575850
+    },
+    {
+      "FirstEmg": 91.87,
+      "timestamp": 1730575851
+    },
+    {
+      "FirstEmg": 42.71,
+      "timestamp": 1730575852
+    },
+    {
+      "FirstEmg": 45.13,
+      "timestamp": 1730575853
+    },
+    {
+      "FirstEmg": 161.98,
+      "timestamp": 1730575854
+    },
+    {
+      "FirstEmg": 39.49,
+      "timestamp": 1730575855
+    },
+    {
+      "FirstEmg": 47.55,
+      "timestamp": 1730575856
+    },
+    {
+      "FirstEmg": 42.71,
+      "timestamp": 1730575857
+    },
+    {
+      "FirstEmg": 42.71,
+      "timestamp": 1730575857
+    },
+    {
+      "FirstEmg": 78.97,
+      "timestamp": 1730575858
+    },
+    {
+      "FirstEmg": 40.29,
+      "timestamp": 1730575859
+    },
+    {
+      "FirstEmg": 43.52,
+      "timestamp": 1730575860
+    },
+    {
+      "FirstEmg": 33.85,
+      "timestamp": 1730575861
+    },
+    {
+      "FirstEmg": 42.71,
+      "timestamp": 1730575862
+    },
+    {
+      "FirstEmg": 46.74,
+      "timestamp": 1730575863
+    },
+    {
+      "FirstEmg": 39.49,
+      "timestamp": 1730575864
+    },
+    {
+      "FirstEmg": 29.01,
+      "timestamp": 1730575865
+    },
+    {
+      "FirstEmg": 38.68,
+      "timestamp": 1730575866
+    },
+    {
+      "FirstEmg": 51.58,
+      "timestamp": 1730575867
+    },
+    {
+      "FirstEmg": 38.68,
+      "timestamp": 1730575868
+    },
+    {
+      "FirstEmg": 52.38,
+      "timestamp": 1730575869
+    },
+    {
+      "FirstEmg": 63.66,
+      "timestamp": 1730575870
+    },
+    {
+      "FirstEmg": 66.89,
+      "timestamp": 1730575871
+    },
+    {
+      "FirstEmg": 41.9,
+      "timestamp": 1730575872
+    },
+    {
+      "FirstEmg": 42.71,
+      "timestamp": 1730575873
+    },
+    {
+      "FirstEmg": 114.43,
+      "timestamp": 1730575873
+    },
+    {
+      "FirstEmg": 47.55,
+      "timestamp": 1730575874
+    },
+    {
+      "FirstEmg": 39.49,
+      "timestamp": 1730575875
+    },
+    {
+      "FirstEmg": 38.68,
+      "timestamp": 1730575876
+    }
+  ]
+}

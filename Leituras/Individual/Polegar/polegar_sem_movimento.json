@@ -1,0 +1,183 @@
+{
+  "charts": {
+    "range": "100"
+  },
+  "readings": [
+    {
+      "FirstEmg": 54.8,
+      "timestamp": 1728441930
+    },
+    {
+      "FirstEmg": 38.68,
+      "timestamp": 1728441931
+    },
+    {
+      "FirstEmg": 53.99,
+      "timestamp": 1728441932
+    },
+    {
+      "FirstEmg": 46.74,
+      "timestamp": 1728441933
+    },
+    {
+      "FirstEmg": 52.38,
+      "timestamp": 1728441934
+    },
+    {
+      "FirstEmg": 49.96,
+      "timestamp": 1728441935
+    },
+    {
+      "FirstEmg": 40.29,
+      "timestamp": 1728441935
+    },
+    {
+      "FirstEmg": 59.63,
+      "timestamp": 1728441936
+    },
+    {
+      "FirstEmg": 41.9,
+      "timestamp": 1728441937
+    },
+    {
+      "FirstEmg": 37.88,
+      "timestamp": 1728441938
+    },
+    {
+      "FirstEmg": 40.29,
+      "timestamp": 1728441939
+    },
+    {
+      "FirstEmg": 27.4,
+      "timestamp": 1728441940
+    },
+    {
+      "FirstEmg": 40.29,
+      "timestamp": 1728441941
+    },
+    {
+      "FirstEmg": 43.52,
+      "timestamp": 1728441942
+    },
+    {
+      "FirstEmg": 48.35,
+      "timestamp": 1728441943
+    },
+    {
+      "FirstEmg": 50.77,
+      "timestamp": 1728441944
+    },
+    {
+      "FirstEmg": 49.96,
+      "timestamp": 1728441945
+    },
+    {
+      "FirstEmg": 47.55,
+      "timestamp": 1728441946
+    },
+    {
+      "FirstEmg": 48.35,
+      "timestamp": 1728441947
+    },
+    {
+      "FirstEmg": 41.1,
+      "timestamp": 1728441947
+    },
+    {
+      "FirstEmg": 39.49,
+      "timestamp": 1728441948
+    },
+    {
+      "FirstEmg": 72.53,
+      "timestamp": 1728441949
+    },
+    {
+      "FirstEmg": 51.58,
+      "timestamp": 1728441950
+    },
+    {
+      "FirstEmg": 52.38,
+      "timestamp": 1728441951
+    },
+    {
+      "FirstEmg": 40.29,
+      "timestamp": 1728441952
+    },
+    {
+      "FirstEmg": 43.52,
+      "timestamp": 1728441953
+    },
+    {
+      "FirstEmg": 50.77,
+      "timestamp": 1728441954
+    },
+    {
+      "FirstEmg": 45.93,
+      "timestamp": 1728441955
+    },
+    {
+      "FirstEmg": 59.63,
+      "timestamp": 1728441956
+    },
+    {
+      "FirstEmg": 46.74,
+      "timestamp": 1728441957
+    },
+    {
+      "FirstEmg": 38.68,
+      "timestamp": 1728441958
+    },
+    {
+      "FirstEmg": 44.32,
+      "timestamp": 1728441959
+    },
+    {
+      "FirstEmg": 37.07,
+      "timestamp": 1728441959
+    },
+    {
+      "FirstEmg": 50.77,
+      "timestamp": 1728441960
+    },
+    {
+      "FirstEmg": 41.1,
+      "timestamp": 1728441961
+    },
+    {
+      "FirstEmg": 44.32,
+      "timestamp": 1728441962
+    },
+    {
+      "FirstEmg": 52.38,
+      "timestamp": 1728441963
+    },
+    {
+      "FirstEmg": 43.52,
+      "timestamp": 1728441964
+    },
+    {
+      "FirstEmg": 38.68,
+      "timestamp": 1728441965
+    },
+    {
+      "FirstEmg": 43.52,
+      "timestamp": 1728441966
+    },
+    {
+      "FirstEmg": 40.29,
+      "timestamp": 1728441967
+    },
+    {
+      "FirstEmg": 38.68,
+      "timestamp": 1728441968
+    },
+    {
+      "FirstEmg": 56.41,
+      "timestamp": 1728441969
+    },
+    {
+      "FirstEmg": 41.9,
+      "timestamp": 1728441970
+    }
+  ]
+}
