@@ -11,6 +11,7 @@ public class LeiturasModel
     /// <summary>
     /// Lista das leituras
     /// </summary>
+    [JsonRequired]
     [JsonProperty("readings")]
     public List<Data> Readings { get; set; }
 
@@ -26,11 +27,28 @@ public class LeiturasModel
 
     public class Data
     {
+        //[JsonRequired]
+        //[JsonProperty("FirstEmg")]
+        //public string FirstEmg { get; set; }
+
         /// <summary>
-        /// Valor da leitura, em mV, da rota FirstEmg que contempla o músculo flexor
+        /// Valor da leitura, em mV, da rota FlexEmg que contempla o músculo flexor
         /// </summary>
-        [JsonProperty("FirstEmg")]
-        public string FirstEmg { get; set; }
+        [JsonRequired]
+        [JsonProperty("FlexEmg")]
+        public string FlexEmg { get; set; }
+
+        /// <summary>
+        /// Valor da leitura, em mV, da rota ExtEmg que contempla o músculo extensor
+        /// </summary>
+        [JsonProperty("ExtEmg")]
+        public string ExtEmg { get; set; }
+
+        /// <summary>
+        /// Valor da leitura, em mV, da rota PolEmg que contempla o músculo do polegar
+        /// </summary>
+        [JsonProperty("PolEmg")]
+        public string PolEmg { get; set; }
 
         /// <summary>
         /// Horário da leitura

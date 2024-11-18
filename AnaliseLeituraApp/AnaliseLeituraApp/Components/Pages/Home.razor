@@ -15,9 +15,31 @@
 </div>
 
 <div hidden="@hideTexto">
-    <h3>A média obtida das leituras é de @media mV</h3>
-    <h3>O maior valor obtido das leituras é de @maior mV</h3>
-    <h3>O menor valor obtido das leituras é de @menor mV</h3>
+    @if (mediaPol > 0 && mediaExt > 0)
+    {
+        <h3><b>FLEXOR</b></h3>
+    }
+    <h3>A média obtida das leituras é de @mediaFlex mV</h3>
+    <h3>O maior valor obtido das leituras é de @maiorFlex mV</h3>
+    <h3>O menor valor obtido das leituras é de @menorFlex mV</h3>
+
+    @if (mediaExt > 0)
+    {
+        <br />
+        <h3><b>EXTENSOR</b></h3>
+        <h3>A média obtida das leituras é de @mediaExt mV</h3>
+        <h3>O maior valor obtido das leituras é de @maiorExt mV</h3>
+        <h3>O menor valor obtido das leituras é de @menorExt mV</h3>
+    }
+
+    @if (mediaPol > 0)
+    {
+        <br />
+        <h3><b>POLEGAR</b></h3>
+        <h3>A média obtida das leituras é de @mediaPol mV</h3>
+        <h3>O maior valor obtido das leituras é de @maiorPol mV</h3>
+        <h3>O menor valor obtido das leituras é de @menorPol mV</h3>
+    }
 </div>
 <div hidden="@hideTextoErro">
     <h3 style="color:red;">Nenhum arquivo foi selecionado ou o arquivo não é do tipo JSON!</h3>
@@ -26,9 +48,15 @@
 @code {
     IBrowserFile? arquivoSelecionado = null;
     LeiturasModel leituras = new LeiturasModel();
-    decimal media = 0;
-    decimal maior = 0;
-    decimal menor = 99999;
+    decimal mediaFlex = 0;
+    decimal maiorFlex = 0;
+    decimal menorFlex = 99999;
+    decimal mediaExt = 0;
+    decimal maiorExt = 0;
+    decimal menorExt = 99999;
+    decimal mediaPol = 0;
+    decimal maiorPol = 0;
+    decimal menorPol = 99999;
     bool hideTexto = true;
     bool hideTextoErro = true;
 
@@ -67,50 +95,113 @@
         }
     }
 
+    private void DefineMediaMaiorMenor(ref decimal valor, ref decimal media, ref decimal maior, ref decimal menor, ref int count)
+    {
+        media += valor;
+        count++;
+
+        if (valor < menor)
+            menor = valor;
+
+        if (valor > maior)
+            maior = valor;
+    }
+
 
     private void CalcularMedia()
     {
         if (leituras is not null)
         {
-            decimal repousoFlexor = 71.43m;
-            decimal repousoExtensor = 108.35m;
-            decimal repousoPolegar = 46.1m;
+            decimal singleRepousoFlexor = 71.43m;
+            decimal singleRepousoExtensor = 108.35m;
+            decimal singleRepousoPolegar = 46.1m;
 
-            maior = 0;
-            menor = 999999;
-            media = 0;
-            int count = 0;
-            decimal valor = 0;
+            decimal multiRepousoFlexor = 124.91m;
+            decimal multiRepousoExtensor = 5.39m;
+            decimal multiRepousoPolegar = 451.15m;
+
+            maiorFlex = 0;
+            menorFlex = 999999;
+            mediaFlex = 0;
+            int countFlex = 0;
+            decimal valorFlex = 0;
+
+            maiorExt = 0;
+            menorExt = 999999;
+            mediaExt = 0;
+            int countExt = 0;
+            decimal valorExt = 0;
+
+            maiorPol = 0;
+            menorPol = 999999;
+            mediaPol = 0;
+            int countPol = 0;
+            decimal valorPol = 0;
 
             foreach (var dado in leituras.Readings)
             {
-                valor = Convert.ToDecimal(dado.FirstEmg, System.Globalization.CultureInfo.InvariantCulture);
+                valorFlex = Convert.ToDecimal(dado.FlexEmg, System.Globalization.CultureInfo.InvariantCulture);
+
+                if (dado.ExtEmg is not null)
+                    valorExt = Convert.ToDecimal(dado.ExtEmg, System.Globalization.CultureInfo.InvariantCulture);
+
+                if (dado.PolEmg is not null)
+                    valorPol = Convert.ToDecimal(dado.PolEmg, System.Globalization.CultureInfo.InvariantCulture);
+
                 //Manter sem o IF para desconsiderar o repouso e incluir IF para a considerar a média obtida nas leituras em repouso
-                //if (valor > repousoExtensor) //repousoExtensor, repousoPolegar ou repousoFlexor
-                //{
-                    media += valor;
-                    count++;
+                if (valorFlex > multiRepousoFlexor) //repousoExtensor, repousoPolegar ou repousoFlexor
+                    DefineMediaMaiorMenor(ref valorFlex, ref mediaFlex, ref maiorFlex, ref menorFlex, ref countFlex);
 
-                    if (valor < menor)
-                        menor = valor;
+                if (dado.ExtEmg is not null)
+                {
+                    if (valorExt > multiRepousoExtensor)
+                        DefineMediaMaiorMenor(ref valorExt, ref mediaExt, ref maiorExt, ref menorExt, ref countExt);
+                }
 
-                    if (valor > maior)
-                        maior = valor;
-                //}
+                if (dado.PolEmg is not null)
+                {
+                    if (valorPol > multiRepousoPolegar)
+                        DefineMediaMaiorMenor(ref valorPol, ref mediaPol, ref maiorPol, ref menorPol, ref countPol);
+                }
             }
-        
 
             Console.WriteLine($"------- {arquivoSelecionado?.Name} -------");
-            Console.WriteLine($"Soma: {media}");
-            Console.WriteLine($"Registros: {count}");
+            Console.WriteLine($"Soma Flexor: {mediaFlex}");
+            Console.WriteLine($"Registros Flexor: {countFlex}");
 
-            if (count > 0)
-                media = Math.Round(media / count, 2);
+            if (countFlex > 0)
+                mediaFlex = Math.Round(mediaFlex / countFlex, 2);
 
-            Console.WriteLine($"Media: {media}");
-            Console.WriteLine($"Maior: {maior}");
-            Console.WriteLine($"Menor: {menor}");
+            Console.WriteLine($"Media Flexor: {mediaFlex}");
+            Console.WriteLine($"Maior Flexor: {maiorFlex}");
+            Console.WriteLine($"Menor Flexor: {menorFlex}");
             Console.WriteLine();
+
+            if (countExt > 0)
+            {
+                Console.WriteLine($"Soma Extensor: {mediaExt}");
+                Console.WriteLine($"Registros Extensor: {countExt}");
+
+                mediaExt = Math.Round(mediaExt / countExt, 2);
+
+                Console.WriteLine($"Media Extensor: {mediaExt}");
+                Console.WriteLine($"Maior Extensor: {maiorExt}");
+                Console.WriteLine($"Menor Extensor: {menorExt}");
+                Console.WriteLine();
+            }
+
+            if (countPol > 0)
+            {
+                Console.WriteLine($"Soma Polegar: {mediaPol}");
+                Console.WriteLine($"Registros Polegar: {countPol}");
+
+                mediaPol = Math.Round(mediaPol / countPol, 2);
+
+                Console.WriteLine($"Media Polegar: {mediaPol}");
+                Console.WriteLine($"Maior Polegar: {maiorPol}");
+                Console.WriteLine($"Menor Polegar: {menorPol}");
+                Console.WriteLine();
+            }
 
             hideTexto = false;
 

@@ -2,197 +2,195 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Myoware Datalogging Firebase App</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard de Leituras MyoWare</title>
 
-  <!-- include Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <!-- include Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
 
-  <!-- include only the Firebase features as you need -->
-  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
 
-  <script>
-    // Replace with your app config object
-    const firebaseConfig = {
+    <script>
+        // Replace with your app config object
+        const firebaseConfig = {
 
-      apiKey: "",
-      authDomain: "",
-      databaseURL: "",
-      projectId: "",
-      storageBucket: "",
-      messagingSenderId: "",
-      appId: "",
-      measurementId: ""
-    };
+            apiKey: "",
+            authDomain: "",
+            databaseURL: "",
+            projectId: "",
+            storageBucket: "",
+            messagingSenderId: "",
+            appId: "",
+            measurementId: ""
+        };
 
-    // Initialize firebase
-    firebase.initializeApp(firebaseConfig);
+        // Inicializa o firebase
+        firebase.initializeApp(firebaseConfig);
 
-    // Make auth and database references
-    const auth = firebase.auth();
-    const db = firebase.database();
+        // Make auth and database references
+        const auth = firebase.auth();
+        const db = firebase.database();
 
-  </script>
+    </script>
 
-  <!-- include highchartsjs to build the charts-->
-  <script src="https://code.highcharts.com/highcharts.js"></script>
-  <!-- include to use jquery-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <!--include icons from fontawesome-->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  <!-- include Gauges Javascript library-->
-  <script src="https://cdn.rawgit.com/Mikhus/canvas-gauges/gh-pages/download/2.1.7/all/gauge.min.js"></script>
-  <!--reference for favicon-->
-  <link rel="icon" type="image/png" href="favicon.png">
-  <!--reference a stylesheet-->
-  <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- include highchartsjs to build the charts-->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <!-- include to use jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--include icons from fontawesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- include Gauges Javascript library-->
+    <script src="https://cdn.rawgit.com/Mikhus/canvas-gauges/gh-pages/download/2.1.7/all/gauge.min.js"></script>
+    <!--reference for favicon-->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!--reference a stylesheet-->
+    <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 
 <body>
 
-  <!--TOP BAR-->
-  <div class="topnav">
-    <h1>App Leituras Myoware<i class="fas fa-clipboard-list"></i></h1>
-  </div>
-
-  <!--AUTHENTICATION BAR (USER DETAILS/LOGOUT BUTTON)-->
-  <div id="authentication-bar" style="display: none;">
-    <p><span id="authentication-status">Usuário logado</span>
-      <span id="user-details">USEREMAIL</span>
-      <a href="/" id="logout-link">(Deslogar)</a>
-    </p>
-  </div>
-
-  <!--LOGIN FORM-->
-  <form id="login-form" style="display: none;">
-    <div class="form-elements-container">
-      <label for="input-email"><b>Email</b></label>
-      <input type="text" placeholder="Digite o email" id="input-email" required>
-
-      <label for="input-password"><b>Senha</b></label>
-      <input type="password" placeholder="Digite a senha" id="input-password" required>
-
-      <button type="submit" id="login-button">Login</button>
-      <p id="error-message" style="color:red;"></p>
-    </div>
-  </form>
-
-  <!--CONTENT (SENSOR READINGS)-->
-  <div class="content-sign-in" id="content-sign-in" style="display: none;">
-
-    <!--LAST UPDATE-->
-    <p><span class="date-time">Última atualização: <span id="lastUpdate"></span></span></p>
-    <p>
-      <!--Delete data button-->
-      <button id="delete-button" class="deletebtn">Deletar dados</button>
-    </p>
-    <p>
-      Cards: <input type="checkbox" id="cards-checkbox" name="cards-checkbox" style="margin-right:25px;" checked >
-      Gráficos: <input type="checkbox" id="charts-checkbox" name="charts-checkbox" checked>
-    </p>
-
-    <div id="cards-div">
-      <div class="cards">
-        <!--First-->
-        <div class="card">
-          <p><i class="fas fa-chart-area" style="color:#059e8a;"></i> Flexor</p>
-          <p><span class="reading"><span id="emgFirst"></span>mV</span></p>
-        </div>
-        <!--Second-->
-        <div class="card">
-          <p><i class="fas fa-chart-area" style="color:#00add6;"></i> Extensor</p>
-          <p><span class="reading"><span id="emgSecond"></span>mV</span></p>
-        </div>
-        <!--Thumb-->
-        <div class="card">
-          <p><i class="fas fa-chart-area" style="color:#e1e437;"></i> Polegar</p>
-          <p><span class="reading"><span id="emgThumb"></span>mV</span></p>
-        </div>
-      </div>
+    <!--BARRA SUPERIOR-->
+    <div class="topnav">
+        <h1><i class="fas fa-clipboard-list"></i> Dashboard de Leituras MyoWare</h1>
     </div>
 
-    <!--CHARTS-->
-    <div id="charts-div" style="display:block;">
-      <!--SET NUMBER OF READINGS INPUT FIELD-->
-      <div>
-        <p> Número de leituras: <input type="number" id="charts-range"></p>
-      </div>
-      <!--FIRST-CHART-->
-      <div class="cards">
-        <div class="card">
-          <p><i class="fas fa-chart-area" style="color:#059e8a;"></i> FLEXOR CHART</p>
-          <div id="chart-first" class="chart-container"></div>
-        </div>
-      </div>
-      <!--SECOND-CHART-->
-      <div class="cards">
-        <div class="card">
-          <p><i class="fas fa-chart-area" style="color:#00add6;"></i> EXTENSOR CHART</p>
-          <div id="chart-second" class="chart-container"></div>
-        </div>
-      </div>
-      <!--THUMB-CHART-->
-      <div class="cards">
-        <div class="card">
-          <p><i class="fas fa-chart-area" style="color:#e1e437;"></i> POLEGAR CHART</p>
-          <div id="chart-thumb" class="chart-container"></div>
-        </div>
-      </div>
+    <!--BARRA DE AUTENTICAÇÃO (USER DETAILS/LOGOUT BUTTON)-->
+    <div id="authentication-bar" style="display: none;">
+        <p>
+            <span id="authentication-status">Usuário logado</span>
+            <span id="user-details">USEREMAIL</span>
+            <a href="/" id="logout-link">(Deslogar)</a>
+        </p>
     </div>
 
-    <!--BUTTONS TO HANDLE DATA-->
-    <p>
-      <!--View data button-->
-      <button id="view-data-button">Ver todos os dados</button>
-      <!--Hide data button-->
-      <button id="hide-data-button" style="display:none;">Esconder dados</button>
-    </p>
-    <!--Modal to delete data-->
-    <div id="delete-modal" class="modal" sytle="display:none">
-      <span onclick="document.getElementById('delete-modal').style.display='none'" class="close"
-        title="Close Modal">×</span>
-      <form id="delete-data-form" class="modal-content" action="/">
-        <div class="container">
-          <h1>Deletear Dados</h1>
-          <p>Você tem certeza que quer deletar todos os dados do banco?</p>
-          <div class="clearfix">
-            <button type="button" onclick="document.getElementById('delete-modal').style.display='none'"
-              class="cancelbtn">Cancelar</button>
-            <button type="submit" onclick="document.getElementById('delete-modal').style.display='none'"
-              class="deletebtn">Deletar</button>
-          </div>
+    <!--FORM DE LOGIN-->
+    <form id="login-form" style="display: none;">
+        <div class="form-elements-container">
+            <label for="input-email"><b>Email</b></label>
+            <input type="text" placeholder="Digite o email" id="input-email" required>
+
+            <label for="input-password"><b>Senha</b></label>
+            <input type="password" placeholder="Digite a senha" id="input-password" required>
+
+            <button type="submit" id="login-button">Login</button>
+            <p id="error-message" style="color:red;"></p>
         </div>
-      </form>
+    </form>
+
+    <!--CONTEÚDO (SENSOR READINGS)-->
+    <div class="content-sign-in" id="content-sign-in" style="display: none;">
+        <p><span class="date-time">Última atualização: <span id="lastUpdate"></span></span></p>
+        <p>
+            <button id="delete-button" class="deletebtn">Deletar dados</button>
+        </p>
+        <p>
+            Cards: <input type="checkbox" id="cards-checkbox" name="cards-checkbox" style="margin-right:25px;" checked>
+            Gráficos: <input type="checkbox" id="charts-checkbox" name="charts-checkbox" checked>
+        </p>
+
+        <div id="cards-div">
+            <div class="cards">
+                <!--FLEXOR-->
+                <div class="card">
+                    <p><i class="fas fa-chart-area" style="color:#059e8a;"></i> Flexor</p>
+                    <p><span class="reading"><span id="emgFlex"></span>mV</span></p>
+                </div>
+                <!--EXTENSOR-->
+                <div class="card">
+                    <p><i class="fas fa-chart-area" style="color:#00add6;"></i> Extensor</p>
+                    <p><span class="reading"><span id="emgExt"></span>mV</span></p>
+                </div>
+                <!--POLEGAR-->
+                <div class="card">
+                    <p><i class="fas fa-chart-area" style="color:#e1e437;"></i> Polegar</p>
+                    <p><span class="reading"><span id="emgPol"></span>mV</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!--CHARTS-->
+        <div id="charts-div" style="display:block;">
+            <!--CAMPO PARA O NÚMERO DE LEITURA EXIBIDAS-->
+            <div>
+                <p> Número de leituras: <input type="number" id="charts-range"></p>
+            </div>
+            <!--GRÁFICO FLEXOR-->
+            <div class="cards">
+                <div class="card">
+                    <p><i class="fas fa-chart-area" style="color:#059E8A;"></i> GRÁFICO FLEXOR </p>
+                    <div id="chart-flex" class="chart-container"></div>
+                </div>
+            </div>
+            <!--GRÁFICO EXTENSOR-->
+            <div class="cards">
+                <div class="card">
+                    <p><i class="fas fa-chart-area" style="color:#8A2F3C;"></i> GRÁFICO EXTENSOR </p>
+                    <div id="chart-ext" class="chart-container"></div>
+                </div>
+            </div>
+            <!--GRÁFICO POLEGAR-->
+            <div class="cards">
+                <div class="card">
+                    <p><i class="fas fa-chart-area" style="color:#E1E437;"></i> GRÁFICO POLEGAR </p>
+                    <div id="chart-pol" class="chart-container"></div>
+                </div>
+            </div>
+        </div>
+
+        <!--BOTÕES PARA EXIBIR/ESCONDER TABELA-->
+        <p>
+            <button id="view-data-button">Ver todos os dados</button>
+            <button id="hide-data-button" style="display:none;">Esconder dados</button>
+        </p>
+
+        <!--MODAL PARA CONFIRMAR EXCLUSÃO DOS DADOS-->
+        <div id="delete-modal" class="modal" sytle="display:none">
+            <span onclick="document.getElementById('delete-modal').style.display='none'" class="close"
+                  title="Close Modal">×</span>
+            <form id="delete-data-form" class="modal-content" action="/">
+                <div class="container">
+                    <h1>Deletear Dados</h1>
+                    <p>Você tem certeza que quer deletar todos os dados do banco?</p>
+                    <div class="clearfix">
+                        <button type="button" onclick="document.getElementById('delete-modal').style.display='none'"
+                                class="cancelbtn">
+                            Cancelar
+                        </button>
+                        <button type="submit" onclick="document.getElementById('delete-modal').style.display='none'"
+                                class="deletebtn">
+                            Deletar
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!--TABELA-->
+        <div class="cards">
+            <div class="card" id="table-container" style="display:none;">
+                <table id="readings-table">
+                    <tr id="theader">
+                        <th>Timestamp</th>
+                        <th>Emg Flexor</th>
+                        <th>Emg Extensor</th>
+                        <th>Emg Polegar</th>
+                    </tr>
+                    <tbody id="tbody">
+                    </tbody>
+                </table>
+                <p><button id="load-data" style="display:none;">Mais resultados...</button></p>
+            </div>
+        </div>
+
     </div>
 
-    <!--TABLE WITH ALL DATA-->
-    <div class="cards">
-      <div class="card" id="table-container" style="display:none;">
-        <table id="readings-table">
-          <tr id="theader">
-            <th>Timestamp</th>
-            <th>Emg Flexor</th>
-            <th>Emg Extensor</th>
-            <th>Emg Polegar</th>
-          </tr>
-          <tbody id="tbody">
-          </tbody>
-        </table>
-        <p><button id="load-data" style="display:none;">Mais resultados...</button></p>
-      </div>
-    </div>
-
-  </div>
-
-  <!--INCLUDE JS FILES-->
-  <script src="scripts/auth.js"></script>
-  <script src="scripts/charts-definition.js"></script>
-  <script src="scripts/index.js"></script>
-
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/charts-definition.js"></script>
+    <script src="scripts/index.js"></script>
 </body>
-
 </html>
